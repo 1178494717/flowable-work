@@ -1,24 +1,20 @@
-package com.github.business.entity;
+package com.github.business.dto;
 
+import com.github.business.entity.Manager;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * @date 2020/6/14
+ * @date 2020/6/15
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ACT_DC_USER")
-@Entity
-public class User {
+public class UserDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String userId;
@@ -29,6 +25,10 @@ public class User {
 
     private String email;
 
-    private String deptName;
+    private Manager manager;
+
+    private Timestamp createTime;
+
+    private Timestamp updateTime;
 
 }

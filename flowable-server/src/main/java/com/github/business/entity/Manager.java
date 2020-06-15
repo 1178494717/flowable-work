@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Convert;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -17,20 +14,19 @@ import java.sql.Timestamp;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ACT_DC_DEPT")
-public class Dept {
+@Table(name = "ACT_DC_MANAGER")
+@Entity
+public class Manager {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    private String userId;
 
     private String deptName;
 
     @Convert(converter = DeptTypeEnum.Converter.class)
     private String type;
-
-    private Timestamp createTime;
-
-    private Timestamp updateTime;
 
 }

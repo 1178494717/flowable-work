@@ -1,0 +1,11 @@
+insert into ACT_DC_USER(ID,DEPT_NAME,EMAIL,PASSWORD,USER_ID,USER_NAME)
+values (1,'OT','A50001@163.com','test','A50001','赵一');
+
+insert into ACT_DC_USER(ID,DEPT_NAME,EMAIL,PASSWORD,USER_ID,USER_NAME)
+values (2,'OT','A50002@163.com','test','A50002','钱二');
+
+insert into ACT_DC_USER(ID,DEPT_NAME,EMAIL,PASSWORD,USER_ID,USER_NAME)
+values (3,'OT','A50003@163.com','test','A50003','孙三');
+
+insert into ACT_DC_USER(ID,DEPT_NAME,EMAIL,PASSWORD,USER_ID,USER_NAME)
+values (4,'OT','A50004@163.com','test','A50004','李四');
