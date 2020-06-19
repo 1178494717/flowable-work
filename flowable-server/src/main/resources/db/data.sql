@@ -9,3 +9,12 @@ values (3,'OT','A50003@163.com','test','A50003','孙三');
 
 insert into ACT_DC_USER(ID,DEPT_NAME,EMAIL,PASSWORD,USER_ID,USER_NAME)
 values (4,'OT','A50004@163.com','test','A50004','李四');
+
+insert into ACT_DC_MANAGER(ID,USER_ID,DEPT_NAME,DEPT_TYPE, `MANAGER_LIMIT`)
+values (1,'A50001','OT','Section Head', 3);
+
+insert into ACT_DC_MANAGER(ID,USER_ID,DEPT_NAME,DEPT_TYPE, `MANAGER_LIMIT`)
+values (2,'A50002','OT','Dept Head', 5);
+
+insert into ACT_DC_MANAGER(ID,USER_ID,DEPT_NAME,DEPT_TYPE, `MANAGER_LIMIT`)
+values (3,'A50003','ALL','Boss Head', 10);

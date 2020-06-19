@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -19,7 +20,7 @@ import java.sql.Timestamp;
 public class Manager {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String userId;
@@ -27,6 +28,8 @@ public class Manager {
     private String deptName;
 
     @Convert(converter = DeptTypeEnum.Converter.class)
-    private String type;
+    private String deptType;
+
+    private BigDecimal managerLimit;
 
 }

@@ -26,9 +26,4 @@ public class UserDto {
     private String email;
 
     private Manager manager;
-
-    private Timestamp createTime;
-
-    private Timestamp updateTime;
-
 }
