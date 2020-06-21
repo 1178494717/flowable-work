@@ -24,6 +24,8 @@ public class ReimburseDto {
 
     private Integer id;
 
+    private String processIntanceId;
+
     private String userId;
 
     private BigDecimal amount;

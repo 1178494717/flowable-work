@@ -25,5 +25,7 @@ public class UserDto {
 
     private String email;
 
+    private String deptName;
+
     private Manager manager;
 }

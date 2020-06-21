@@ -10,6 +10,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @date 2020/6/16
  */
@@ -40,4 +42,7 @@ public class UserService {
         });
     }
 
+    public List<Manager> findAllByDeptName(String deptName){
+        return (List<Manager>) appStore.computeIfAbsent(deptName, o -> managerRepository.findAllByDeptName(deptName));
+    }
 }

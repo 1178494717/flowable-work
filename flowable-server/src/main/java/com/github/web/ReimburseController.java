@@ -5,8 +5,13 @@ import com.github.business.entity.ReimburseForm;
 import com.github.service.ReimburseService;
 import com.github.web.response.result.Response;
 import com.github.web.response.result.ResponseResult;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sun.net.idn.Punycode;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @date 2020/6/19
@@ -19,10 +24,26 @@ public class ReimburseController {
     private ReimburseService reimburseService;
 
 
-    @PostMapping
-    public ResponseResult<ReimburseForm> save(@RequestBody ReimburseDto reimburseDto){
+    @PostMapping("/save")
+    public ResponseResult<ReimburseDto> save(@RequestBody ReimburseDto reimburseDto){
         ReimburseForm reimburseForm = reimburseService.save(reimburseDto);
-        return Response.makeOKRsp(reimburseForm);
+        BeanUtils.copyProperties(reimburseForm, reimburseDto);
+        return Response.makeOKRsp(reimburseDto);
     }
 
+    @GetMapping(name = "list")
+    public ResponseResult<List<ReimburseDto>> list(String userId){
+        List<ReimburseDto> list = reimburseService.findAllByUserId(userId);
+        return Response.makeOKRsp(list);
+    }
+
+    @PostMapping("/create")
+    public ResponseResult<ReimburseDto> create(){
+        ReimburseDto reimburseDto = new ReimburseDto();
+        reimburseDto.setCreateTime(LocalDateTime.now());
+        reimburseDto.setUpdateTime(LocalDateTime.now());
+        ReimburseForm reimburseForm = reimburseService.save(reimburseDto);
+        BeanUtils.copyProperties(reimburseForm, reimburseDto);
+        return Response.makeOKRsp(reimburseDto);
+    }
 }

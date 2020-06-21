@@ -25,6 +25,8 @@ public class ReimburseForm {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String processIntanceId;
+
     private String userId;
 
     private BigDecimal amount;
